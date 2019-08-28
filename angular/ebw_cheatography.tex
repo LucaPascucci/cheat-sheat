@@ -1,0 +1,844 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage{fancyhdr}           % For header and footer
+\usepackage{multicol}           % Allows multicols in tables
+\usepackage{tabularx}           % Intelligent column widths
+\usepackage{tabulary}           % Used in header and footer
+\usepackage{hhline}             % Border under tables
+\usepackage{graphicx}           % For images
+\usepackage{xcolor}             % For hex colours
+\usepackage[utf8x]{inputenc}    % For unicode character support
+\usepackage[T1]{fontenc}        % Without this we get weird character replacements
+\usepackage{colortbl}           % For coloured tables
+\usepackage{setspace}           % For line height
+\usepackage{lastpage}           % Needed for total page number
+\usepackage{seqsplit}           % Splits long words.
+%\usepackage{opensans}          % Can't make this work so far. Shame. Would be lovely.
+\usepackage[normalem]{ulem}     % For underlining links
+% Most of the following are not required for the majority
+% of cheat sheets but are needed for some symbol support.
+\usepackage{amsmath}            % Symbols
+\usepackage{MnSymbol}           % Symbols
+\usepackage{wasysym}            % Symbols
+\usepackage[italian]{babel}              % Languages
+\usepackage[nodayofweek]{datetime} % DATE
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=blue
+}
+
+% Document Info
+\author{Luca Pascucci (lucapascucci)}
+\pdfinfo{
+  /Title (EBWCheatSheet.pdf)
+  /Creator (Luca Pascucci)
+  /Author (Luca Pascucci (lucapascucci))
+  /Subject (EBW Cheat Sheet)
+}
+
+% Lengths and widths
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{-1cm}
+\addtolength{\hoffset}{-3cm}
+\addtolength{\voffset}{-2cm}
+\setlength{\tabcolsep}{0.2cm} % Space between columns
+\setlength{\headsep}{-12pt} % Reduce space between header and content
+\setlength{\headheight}{85pt} % If less, LaTeX automatically increases it
+\renewcommand{\footrulewidth}{0pt} % Remove footer line
+\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\seqinsert}{\ifmmode\allowbreak\else\-\fi} % Hyphens in seqsplit
+% This two commands together give roughly
+% the right line height in the tables
+\renewcommand{\arraystretch}{1.3}
+\onehalfspacing
+
+% Commands
+\newcommand{\SetRowColor}[1]{\noalign{\gdef\RowColorName{#1}}\rowcolor{\RowColorName}} % Shortcut for row colour
+\newcommand{\mymulticolumn}[3]{\multicolumn{#1}{>{\columncolor{\RowColorName}}#2}{#3}} % For coloured multi-cols
+\newcolumntype{x}[1]{>{\raggedright}p{#1}} % New column types for ragged-right paragraph columns
+\newcommand{\tn}{\tabularnewline} % Required as custom column type in use
+
+% Font and Colours
+\definecolor{HeadBackground}{HTML}{333333}
+\definecolor{FootBackground}{HTML}{666666}
+\definecolor{TextColor}{HTML}{333333}
+\definecolor{DarkBackground}{HTML}{336600}
+\definecolor{LightBackground}{HTML}{E6FFCC}
+\renewcommand{\familydefault}{\sfdefault}
+\color{TextColor}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhead{} % Set header to blank
+\fancyfoot{} % Set footer to blank
+\fancyhead[L]{
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{C}
+    \SetRowColor{DarkBackground}
+    \vspace{-7pt}
+    {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
+        \hspace*{-6pt}\includegraphics[width=5.8cm]{./images/EBWorld.png}}
+    }
+\end{tabulary}
+\columnbreak
+\begin{tabulary}{11cm}{L}
+    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{EBW Cheat Sheet}}}} \\
+    \normalsize{by \textcolor{DarkBackground}{Luca Pascucci (lucapascucci)} via \textcolor{DarkBackground}{\uline{cheatography.com/lucapascucci/}}}
+\end{tabulary}
+\end{multicols}}
+
+\fancyfoot[L]{ \footnotesize
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{LL}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
+  \vspace{-2pt}Luca Pascucci (lucapascucci) \\
+  \uline{cheatography.com/lucapascucci} \\
+  \end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
+   \vspace{-2pt}Published \today .\\
+   Updated \today .\\
+   Page {\thepage} of \pageref{LastPage}.
+\end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
+  \SetRowColor{white}
+  \vspace{-5pt}
+  \includegraphics[width=120px,height=48px]{./images/EBWorld.png}  \\
+  EBWolrd s.r.l.\\
+  \uline{ebw.it}
+\end{tabulary}
+\end{multicols}}
+
+
+\begin{document}
+\raggedright
+\raggedcolumns
+
+% Set font size to small. Switch to any value
+% from this page to resize cheat sheet text:
+% www.emerson.emory.edu/services/latex/latex_169.html
+\footnotesize % Small font.
+
+\begin{multicols*}{3}
+
+   \begin{tabularx}{5.377cm}{X}
+      \SetRowColor{DarkBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Configurazione Progetto generico}}  \tn
+
+      \SetRowColor{LightBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\textbf{Config EDITOR -> root del progetto}} \tn
+
+      \SetRowColor{white}
+      \mymulticolumn{1}{x{5.377cm}}{Copiare file \textbf{.editorconfig}} \tn
+
+      \SetRowColor{LightBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\textbf{Plugins}
+      \href{https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig}{VSCode}
+      \href{https://atom.io/packages/editorconfig}{Atom}} \tn
+
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+      \end{tabularx}
+      \par\addvspace{1em}
+
+
+  \begin{tabularx}{5.377cm}{x{1.74195 cm} x{3.23505 cm}}
+    \SetRowColor{DarkBackground}
+    \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Angular}}  \tn
+    \SetRowColor{LightBackground}
+    Componenti \& Servizi & UpperCamelCase \tn
+    \SetRowColor{white}
+    Observer \& Subjects & lowerCamelCase\$ \tn
+    \SetRowColor{LightBackground}
+    Funzioni: & lowerCamelCase \tn
+    \SetRowColor{white}
+    Variabili: & lowerCamelCase \tn
+    \SetRowColor{LightBackground}
+    Costanti: & UPPER\_CASE \tn
+    \hhline{>{\arrayrulecolor{DarkBackground}}--}
+  \end{tabularx}
+  \par\addvspace{1em}
+
+  \begin{tabularx}{5.377cm}{X}
+   \SetRowColor{DarkBackground}
+   \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Lint Typescript}}  \tn
+   \SetRowColor{LightBackground}
+   \mymulticolumn{1}{x{5.377cm}}{\textbf{Installazione}} \tn
+   \SetRowColor{white}
+   \mymulticolumn{1}{x{5.377cm}}{Automaticamente presente nei progetti Angular} \tn
+   \SetRowColor{LightBackground}
+   \mymulticolumn{1}{x{5.377cm}}{\textbf{Configurazioni -> root del progetto}} \tn
+   \SetRowColor{white}
+   \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{tslint.json}} \tn
+   \hhline{>{\arrayrulecolor{DarkBackground}}-}
+   \end{tabularx}
+   \par\addvspace{1em}
+
+    \begin{tabularx}{5.377cm}{X}
+      \SetRowColor{DarkBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{CompoDoc (Setup)}}  \tn
+      \SetRowColor{LightBackground}
+      \textbf{Installazione} \tn
+      \SetRowColor{white}
+        npm install -g @compodoc/compodoc \tn
+      \SetRowColor{LightBackground}
+      \textbf{Script -> in package.json} \tn
+      \SetRowColor{white}
+      \mymulticolumn{1}{x{5.377cm}}{"doc": "compodoc -p src/tsconfig.app.json \texttt{-{}-}serve 4201 \texttt{-{}-}watch \texttt{-{}-}theme=Readthedocs \texttt{-{}-}open"} \tn
+      \SetRowColor{LightBackground}
+      \textbf{Inserire nel .gitignore} \tn
+      \SetRowColor{white}
+      \# CompoDoc \\ /documentation\tn
+      \SetRowColor{LightBackground}
+      \textbf{Creare documentazione} \tn
+      \SetRowColor{white}
+      npm run doc \tn
+      \SetRowColor{LightBackground}
+      \textbf{Controllare copertura documentazione} \tn
+      \SetRowColor{white}
+      Aprire \textbf{Documentation Coverage}!!! \tn
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+    \end{tabularx}
+    \par\addvspace{1em}
+
+    \begin{tabularx}{5.377cm}{X}
+      \SetRowColor{DarkBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{CompoDoc (Regole documentazione)}}  \tn
+      \SetRowColor{LightBackground}
+      \textbf{Componenti, Servizi, \dots} \tn
+      \SetRowColor{white}
+         /** Commento */ \\
+         @Component,Sevice,\dots\tn
+      \SetRowColor{LightBackground}
+      \textbf{Variabili, costanti, \dots} \tn
+      \SetRowColor{white}
+      /** Commento */ \tn
+      \SetRowColor{LightBackground}
+      \textbf{Funzioni} \tn
+      \SetRowColor{white}
+         /**\\
+         * Commento funzione\\
+         * \textbf{@param} \{string\} pippo Commento\\
+         * \textbf{@returns} Commento ritorno\\
+         */ \\
+         funEsempio(pippo: string): number\tn
+      \SetRowColor{LightBackground}
+      \textbf{Elementi da ignorare (Componenti, Servizi, Funzioni, Variabili, \dots)}\tn
+      \SetRowColor{white}
+      /** @ignore */ \tn
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+    \end{tabularx}
+    \par\addvspace{1em}
+
+    \begin{tabularx}{5.377cm}{X}
+      \SetRowColor{DarkBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{ESLint Node}}  \tn
+
+      \SetRowColor{LightBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\textbf{Installazione}} \tn
+
+      \SetRowColor{white}
+      \mymulticolumn{1}{x{5.377cm}}{
+         npm install -g eslint \\
+         npm install -g eslint-plugin-jsdoc} \tn
+
+      \SetRowColor{LightBackground}
+      \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{.eslintrc} nella root del progetto} \tn
+
+      \SetRowColor{white}
+      \mymulticolumn{1}{x{5.377cm}}{
+         \textbf{Plugins}
+         \href{https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint}{VSCode}
+         \href{https://atom.io/packages/eslint}{Atom}} \tn
+
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+      \end{tabularx}
+      \par\addvspace{1em}
+
+    \begin{tabularx}{5.377cm}{X}
+      \SetRowColor{DarkBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{JsDoc (Setup)}}  \tn
+      \SetRowColor{LightBackground}
+      \textbf{Installazione} \tn
+      \SetRowColor{white}
+         npm install -g jsdoc \\
+         npm install \texttt{-{}-}save-dev toast-jsdoc\tn
+      \SetRowColor{LightBackground}
+      \textbf{Configurazioni -> root del progetto} \tn
+      \SetRowColor{white}
+      \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{conf.json}} \tn
+      \SetRowColor{LightBackground}
+      \textbf{Script -> package.json del pacchetto} \tn
+      \SetRowColor{white}
+         "createDoc": "jsdoc -c conf.json \texttt{-{}-}verbose",\\
+         "openDoc": "start chrome documentation\textbackslash{}\textbackslash{}index.html", \\
+         "doc": "npm run createDoc \&\& npm run openDoc"
+         \tn
+      \SetRowColor{LightBackground}
+      \textbf{Inserire nel .gitignore} \tn
+      \SetRowColor{white}
+      \# JsDoc \\ documentation/ \tn
+      \SetRowColor{LightBackground}
+      \textbf{Creare e visualizzare documentazione} \tn
+      \SetRowColor{white}
+      npm run doc \tn
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+    \end{tabularx}
+    \par\addvspace{1em}
+
+    \begin{tabularx}{5.377cm}{X}
+      \SetRowColor{DarkBackground}
+      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{JsDoc (Regole documentazione)}}  \tn
+      \SetRowColor{LightBackground}
+      \textbf{Intestazione di ogni file .js (UpperCamelCase)} \tn
+      \SetRowColor{white}
+      /** \textbf{@module} NomeFile */ \tn
+      \SetRowColor{LightBackground}
+      \textbf{Require di file locali (UpperCamelCase)} \tn
+      \SetRowColor{white}
+      /** \textbf{@see module:}NomeFile */ \\
+      const api = require('./nome\_file') \tn
+      \SetRowColor{LightBackground}
+      \textbf{Funzioni} \tn
+      \SetRowColor{white}
+         /**\\
+         * Commento funzione\\
+         * \textbf{@param} \{Type\} req Commento\\
+         * \textbf{@param} \{*\} req Commento\\
+         * \textbf{@return} \{number\} Commento ritorno\\
+         * \textbf{@example} <caption> Body della richiesta </caption> \\
+         * req.body = \{ "id": 1023 \} \\
+         */ \\
+         function prova(req,res): number\tn
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+    \end{tabularx}
+    \par\addvspace{1em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-columns\}\} Columns}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{Blocks are organised into columns by you.} \tn
+% % Row Count 1 (+ 1)
+% % Row 1
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{PDFs organise blocks into columns automatically.} \tn
+% % Row Count 2 (+ 1)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{Try to keep the columns roughly even in length - it makes the cheat sheets easier to use online.} \tn
+% % Row Count 4 (+ 2)
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-file-text-o\}\} Plain Text Block}}  \tn
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{This is an example of a plain text block, filled with example content. Text in these blocks is added as-is, including \newline % Row Count 3 (+ 3)
+% line breaks.% Row Count 4 (+ 1)
+% } \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-code\}\} Code Block}}  \tn
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\textless{}?php \newline   // This is a code block. \newline   // It preserves indentation and  \newline   // uses a monospaced font.} \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-columns\}\} One Column Block}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{This is a one-column block.} \tn
+% % Row Count 1 (+ 1)
+% % Row 1
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{It's useful for listing long items.} \tn
+% % Row Count 2 (+ 1)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{It can also be useful for sequences of steps or commands in programming cheat sheets or recipes.} \tn
+% % Row Count 4 (+ 2)
+% % Row 3
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{Rows have alternating background colours to make the cheat sheet easier to read.} \tn
+% % Row Count 6 (+ 2)
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{1.74195 cm} x{3.23505 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-columns\}\} Two Column Block}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% Block Type: & Two Columns \tn
+% % Row Count 1 (+ 1)
+% % Row 1
+% \SetRowColor{white}
+% Useful For: & Translations \tn
+% % Row Count 2 (+ 1)
+% % Row 2
+% \SetRowColor{LightBackground}
+%  & Key / Value Pairs \tn
+% % Row Count 3 (+ 1)
+% % Row 3
+% \SetRowColor{white}
+%  & Lists of small items \tn
+% % Row Count 4 (+ 1)
+% % Row 4
+% \SetRowColor{LightBackground}
+% \mymulticolumn{2}{x{5.377cm}}{\{\{bt\}\}{\bf{Multi-Column Items}}} \tn
+% % Row Count 5 (+ 1)
+% % Row 5
+% \SetRowColor{white}
+% \mymulticolumn{2}{x{5.377cm}}{If you have an item in column 1 but not column 2, it will span both columns.} \tn
+% % Row Count 7 (+ 2)
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{p{1.55618 cm} p{1.51041 cm} p{1.51041 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{3}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-columns\}\} Three Column Block}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% 1 & 1 & 2 \tn
+% % Row Count 1 (+ 1)
+% % Row 1
+% \SetRowColor{white}
+% 3 & 5 & 8 \tn
+% % Row Count 2 (+ 1)
+% % Row 2
+% \SetRowColor{LightBackground}
+% 13 & 21 & 34 \tn
+% % Row Count 3 (+ 1)
+% % Row 3
+% \SetRowColor{white}
+% \mymulticolumn{3}{x{5.377cm}}{55} \tn
+% % Row Count 4 (+ 1)
+% \hhline{>{\arrayrulecolor{DarkBackground}}---}
+% \SetRowColor{LightBackground}
+% \mymulticolumn{3}{x{5.377cm}}{These blocks are great for saving space when using lists of small items. \newline  \newline Also, this is the first example of a "content note", which appears under a content block.}  \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}---}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{p{1.04425 cm} p{1.04425 cm} p{1.04425 cm} p{1.04425 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{4}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-columns\}\} Four Column Block}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% A & B & C & D \tn
+% % Row Count 1 (+ 1)
+% % Row 1
+% \SetRowColor{white}
+% E & F & G & H \tn
+% % Row Count 2 (+ 1)
+% % Row 2
+% \SetRowColor{LightBackground}
+% I & J & K & L \tn
+% % Row Count 3 (+ 1)
+% % Row 3
+% \SetRowColor{white}
+% M & N & O & P \tn
+% % Row Count 4 (+ 1)
+% % Row 4
+% \SetRowColor{LightBackground}
+% Q & R & S & T \tn
+% % Row Count 5 (+ 1)
+% % Row 5
+% \SetRowColor{white}
+% U & V & W & X \tn
+% % Row Count 6 (+ 1)
+% % Row 6
+% \SetRowColor{LightBackground}
+% Y & Z &  &  \tn
+% % Row Count 7 (+ 1)
+% \hhline{>{\arrayrulecolor{DarkBackground}}----}
+% \SetRowColor{LightBackground}
+% \mymulticolumn{4}{x{5.377cm}}{Much like the three column block, the four column block is handy for saving space when using lists of small items.}  \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}----}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-question\}\} Question and Answer Block}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{What is this?} \tn
+% \mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}A Q\&A block displays each question with the answer indented underneath.} \tn
+% % Row Count 3 (+ 3)
+% % Row 1
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{When is it useful?} \tn
+% \mymulticolumn{1}{x{5.377cm}}{\hspace*{6 px}\rule{2px}{6px}\hspace*{6 px}It's great for question and answer content!} \tn
+% % Row Count 5 (+ 2)
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{2.05965 cm} x{2.01388 cm} p{0.50347 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{3}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-bar-chart\}\} Bar Chart Block}}  \tn
+% % Row 0
+% \SetRowColor{white}
+% Red & \hspace*{0.02 cm}\rule{0.3cm}{6px} & 12 \tn
+% % Row 1
+% \SetRowColor{LightBackground}
+% Green & \hspace*{0.02 cm}\rule{0.56cm}{6px} & 24 \tn
+% % Row 2
+% \SetRowColor{white}
+% Orange & \hspace*{0.02 cm}\rule{2.02cm}{6px} & 88 \tn
+% % Row 3
+% \SetRowColor{LightBackground}
+% Blue & \hspace*{0.02 cm}\rule{1.16cm}{6px} & 50 \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}---}
+% \SetRowColor{LightBackground}
+% \mymulticolumn{3}{x{5.377cm}}{The bar chart block takes labels and numbers and generates a chart like the above.}  \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}---}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-gift\}\} Tips}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{Use {\bf{tags}} - they help people find your cheat sheet!} \tn
+% % Row Count 2 (+ 2)
+% % Row 1
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{Pick a {\bf{dark colour}} - it makes your cheat sheet easier to read.} \tn
+% % Row Count 4 (+ 2)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{Write a good {\bf{description}} so people know what's on your cheat sheet.} \tn
+% % Row Count 6 (+ 2)
+% % Row 3
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{{\bf{Tell people}} about it when you're finished!} \tn
+% % Row Count 7 (+ 1)
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-file-image-o\}\} Image Block}}  \tn
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{p{5.377cm}}{\vspace{1px}\centerline{\includegraphics[width=5.1cm]{./images/EBWorld.png}}} \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{The image block is just an image, displayed in a block. In the live version of a cheat sheet (not the PDF) you can click on an image for full size.}  \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-film\}\} Video Block}}  \tn
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{p{5.377cm}}{ Video: http://youtu.be/3ZqPaohVjmw} \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{Video can be pulled in from YouTube or Vimeo, and will be shown on the website but not on the PDFs.}  \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{2.4885 cm} x{2.4885 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-calendar\}\} Live Content Block}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% {\bf{Label}} & {\bf{Value}} \tn
+% % Row Count 1 (+ 1)
+% % Row 1
+% \SetRowColor{white}
+% Year & 2018 \tn
+% % Row Count 2 (+ 1)
+% % Row 2
+% \SetRowColor{LightBackground}
+% Month & 9 \tn
+% % Row Count 3 (+ 1)
+% % Row 3
+% \SetRowColor{white}
+% Day & 26 \tn
+% % Row Count 4 (+ 1)
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \SetRowColor{LightBackground}
+% \mymulticolumn{2}{x{5.377cm}}{A "live content" block pulls its content from a URL, in a specific format. It's great for anything that changes regularly, like live statistics, up-to-the-minute sports results and tables, stock and share prices, TV schedules and even traffic and weather reports.}  \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{1.33664 cm} x{1.08602 cm} x{1.16956 cm} p{0.58478 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{4}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-check\}\} Icons}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{fa-rocket\}\} & \{\{br\}\}\{\{fa-rocket\}\} & \{\{literal\}\}\{\{fa-bold\}\} & \{\{fa-bold\}\} \tn
+% % Row Count 3 (+ 3)
+% % Row 1
+% \SetRowColor{white}
+% \{\{literal\}\}\{\{fa-check\}\} & \{\{br\}\}\{\{fa-check\}\} & \{\{literal\}\}\{\{fa-leaf\}\} & \{\{fa-leaf\}\} \tn
+% % Row Count 6 (+ 3)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{fa-square-o\}\} & \{\{br\}\}\{\{fa-square-o\}\} & \{\{literal\}\}\{\{fa-cut\}\} & \{\{fa-cut\}\} \tn
+% % Row Count 9 (+ 3)
+% % Row 3
+% \SetRowColor{white}
+% \mymulticolumn{4}{x{5.377cm}}{\{\{bt\}\}Check out the \{\{popup="http://fortawesome.github.io/Font-Awesome/icons/"\}\}full list of Font Awesome icons\{\{/popup\}\}!} \tn
+% % Row Count 12 (+ 3)
+% \hhline{>{\arrayrulecolor{DarkBackground}}----}
+% \SetRowColor{LightBackground}
+% \mymulticolumn{4}{x{5.377cm}}{Icons work in block titles as well as content. There is a cheat sheet for Font Awesome icons at \seqsplit{http://www.cheatography.com/davechild/cheat-sheets/font-awesome/}}  \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}----}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{1.9908 cm} x{2.9862 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-align-left\}\} Borders and Alignment}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{ac\}\} & \{\{ac\}\}Align text centrally \tn
+% % Row Count 2 (+ 2)
+% % Row 1
+% \SetRowColor{white}
+% \{\{literal\}\}\{\{ar\}\} & \{\{ar\}\}Align text right \tn
+% % Row Count 4 (+ 2)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{bb\}\} & \{\{bb\}\}Add border at bottom \tn
+% % Row Count 6 (+ 2)
+% % Row 3
+% \SetRowColor{white}
+% \{\{literal\}\}\{\{br\}\} & \{\{br\}\}Add border on right \tn
+% % Row Count 8 (+ 2)
+% % Row 4
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{bl\}\} & \{\{bl\}\}Add border on left \tn
+% % Row Count 10 (+ 2)
+% % Row 5
+% \SetRowColor{white}
+% \{\{literal\}\}\{\{bt\}\} & \{\{bt\}\}Add border at top \tn
+% % Row Count 12 (+ 2)
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{2.93643 cm} x{2.04057 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-bold\}\} Formatting Options}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% Italics ({\emph{example}}) & \{\{literal\}\}{\emph{text}} \tn
+% % Row Count 2 (+ 2)
+% % Row 1
+% \SetRowColor{white}
+% Bold ({\bf{example}}) & \{\{literal\}\}{\bf{text}} \tn
+% % Row Count 4 (+ 2)
+% % Row 2
+% \SetRowColor{LightBackground}
+% Superscript (\textasciicircum{}example\textasciicircum{}) & \{\{literal\}\}\textasciicircum{}text\textasciicircum{} \tn
+% % Row Count 6 (+ 2)
+% % Row 3
+% \SetRowColor{white}
+% Strikethrough (\textasciitilde{}\textasciitilde{}example\textasciitilde{}\textasciitilde{}) & \{\{literal\}\}\textasciitilde{}\textasciitilde{}text\textasciitilde{}\textasciitilde{} \tn
+% % Row Count 8 (+ 2)
+% % Row 4
+% \SetRowColor{LightBackground}
+% Inline Code (`code`) & \{\{literal\}\}`code` \tn
+% % Row Count 10 (+ 2)
+% % Row 5
+% \SetRowColor{white}
+% Asterisk (*) & \{\{literal\}\}* \tn
+% % Row Count 11 (+ 1)
+% % Row 6
+% \SetRowColor{LightBackground}
+% Carat (\textasciicircum{}) & \{\{literal\}\}\textasciicircum{} \tn
+% % Row Count 12 (+ 1)
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \SetRowColor{LightBackground}
+% \mymulticolumn{2}{x{5.377cm}}{Sometimes you want to use a "*" or "\textasciicircum{}" in your content. Add a backslash before those characters (as an escape character) to tell Cheatography to treat them as normal text instead of special formatting characters, like this: \textbackslash{}* \textbackslash{}\textasciicircum{}}  \tn
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{1.74195 cm} x{3.23505 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-align-left\}\} Breaks and Spacing}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}~ & Insert non-breaking space \tn
+% % Row Count 2 (+ 2)
+% % Row 1
+% \SetRowColor{white}
+% \{\{literal\}\}\{\{nl\}\} & Line break \tn
+% % Row Count 4 (+ 2)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{noshy\}\} & Do not insert shy hyphens \tn
+% % Row Count 6 (+ 2)
+% % Row 3
+% \SetRowColor{white}
+% \{\{literal\}\}\{\{nobreak\}\} & Do not break long lines (only in list blocks) \tn
+% % Row Count 8 (+ 2)
+% % Row 4
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{literal\}\} & Do not format text \tn
+% % Row Count 10 (+ 2)
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{3.08574 cm} x{1.89126 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-external-link\}\} Links}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{popup="http://..."\}\} & Popup URL provided \tn
+% % Row Count 2 (+ 2)
+% % Row 1
+% \SetRowColor{white}
+% \mymulticolumn{2}{x{5.377cm}}{\{\{literal\}\}\{\{popup="http://..."\}\}link text\{\{/popup\}\}} \tn
+% % Row Count 4 (+ 2)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \{\{literal\}\}\{\{link="http://..."\}\} & Link to URL provided \tn
+% % Row Count 6 (+ 2)
+% % Row 3
+% \SetRowColor{white}
+% \mymulticolumn{2}{x{5.377cm}}{\{\{literal\}\}\{\{link="http://..."\}\}link text\{\{/link\}\}} \tn
+% % Row Count 7 (+ 1)
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-bullhorn\}\} Publishing}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{You can only publish a cheat sheet once.} \tn
+% % Row Count 1 (+ 1)
+% % Row 1
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{Before that, only you can see it, unless you share the "preview" URL.} \tn
+% % Row Count 3 (+ 2)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{Newly published cheat sheets are prominent on Cheatography, so make the most of publishing and wait until you're happy with the cheat sheet!} \tn
+% % Row Count 6 (+ 3)
+% % Row 3
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{You can still edit a cheat sheet after you've published it.} \tn
+% % Row Count 8 (+ 2)
+% % Row 4
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{You can't unpublish a cheat sheet once it's been published.} \tn
+% % Row Count 10 (+ 2)
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-language\}\} Language Support}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{Cheatography supports all languages, as best we can manage.} \tn
+% % Row Count 2 (+ 2)
+% % Row 1
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{This means that the web versions of cheat sheets support all of the languages we've seen so far, including Chinese and Japanese.} \tn
+% % Row Count 5 (+ 3)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{We're working on right-to-left language support.} \tn
+% % Row Count 6 (+ 1)
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{x{2.4885 cm} x{2.4885 cm} }
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-star\}\} Rating Guidelines}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \mymulticolumn{2}{x{5.377cm}}{Not sure what rating to give? Here are some tips to help you rate fairly and consistently.} \tn
+% % Row Count 2 (+ 2)
+% % Row 1
+% \SetRowColor{white}
+% \{\{nobreak\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star\}\} & Superb. A great guide, likely to be useful to anyone interested in the topic. Probably well presented, at least a page long, and uses tags. \tn
+% % Row Count 9 (+ 7)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \{\{nobreak\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star-o\}\} & A good cheat sheet, with lots of useful information. Worth printing out a copy! \tn
+% % Row Count 13 (+ 4)
+% % Row 3
+% \SetRowColor{white}
+% \{\{nobreak\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star-o\}\}\{\{fa-star-o\}\} & A decent cheat sheet, but missing some useful information. A useful reference, but could do with some improvement. \tn
+% % Row Count 19 (+ 6)
+% % Row 4
+% \SetRowColor{LightBackground}
+% \{\{nobreak\}\}\{\{fa-star\}\}\{\{fa-star\}\}\{\{fa-star-o\}\}\{\{fa-star-o\}\}\{\{fa-star-o\}\} & Room for improvement - probably not useful yet, but has potential with some more work. \tn
+% % Row Count 24 (+ 5)
+% % Row 5
+% \SetRowColor{white}
+% \{\{nobreak\}\}\{\{fa-star\}\}\{\{fa-star-o\}\}\{\{fa-star-o\}\}\{\{fa-star-o\}\}\{\{fa-star-o\}\} & A poor cheat sheet, likely accidentally published too soon, doesn't have much useful content, contains abuse, or with other serious problems. \tn
+% % Row Count 32 (+ 8)
+% \hhline{>{\arrayrulecolor{DarkBackground}}--}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+% \begin{tabularx}{5.377cm}{X}
+% \SetRowColor{DarkBackground}
+% \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{\{\{fa-star\}\} Rating Tips}}  \tn
+% % Row 0
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{If someone has rated one of your cheat sheets, please consider rating one of theirs.} \tn
+% % Row Count 2 (+ 2)
+% % Row 1
+% \SetRowColor{white}
+% \mymulticolumn{1}{x{5.377cm}}{Avoid "revenge ratings". If you receive a low rating, bear in mind that not everyone will find your cheat sheets as useful as you do!} \tn
+% % Row Count 5 (+ 3)
+% % Row 2
+% \SetRowColor{LightBackground}
+% \mymulticolumn{1}{x{5.377cm}}{Feel free to leave a shout for another user to ask for more information about why they left the rating they did.} \tn
+% % Row Count 8 (+ 3)
+% \hhline{>{\arrayrulecolor{DarkBackground}}-}
+% \end{tabularx}
+% \par\addvspace{1.3em}
+
+
+% That's all folks
+\end{multicols*}
+
+\end{document}
