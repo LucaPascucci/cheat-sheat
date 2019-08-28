@@ -25,19 +25,19 @@
 \usepackage[nodayofweek]{datetime} % DATE
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=magenta,
-    urlcolor=blue
+   colorlinks=true,
+   linkcolor=black,
+   filecolor=magenta,
+   urlcolor=blue
 }
 
 % Document Info
 \author{Luca Pascucci (lucapascucci)}
 \pdfinfo{
-  /Title (EBWCheatSheet.pdf)
-  /Creator (Luca Pascucci)
-  /Author (Luca Pascucci (lucapascucci))
-  /Subject (EBW Cheat Sheet)
+   /Title (Cheat_Sheet_Node.pdf)
+   /Creator (Luca Pascucci)
+   /Author (Luca Pascucci (lucapascucci))
+   /Subject (Cheat_Sheet_Node)
 }
 
 % Lengths and widths
@@ -78,17 +78,19 @@
 \fancyhead[L]{
 \noindent
 \begin{multicols}{3}
-\begin{tabulary}{5.8cm}{C}
-    \SetRowColor{DarkBackground}
-    \vspace{-7pt}
-    {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
-        \hspace*{-6pt}\includegraphics[width=5.8cm]{./images/EBWorld.png}}
-    }
+\begin{tabulary}{5cm}{C}
+   \SetRowColor{DarkBackground}
+   \vspace{-6pt}
+   {\parbox{\dimexpr\textwidth-2\fboxsep\relax}
+      {
+         \includegraphics[width=110px,height=55px]{./images/Nodejs.png}
+      }
+   }
 \end{tabulary}
 \columnbreak
-\begin{tabulary}{11cm}{L}
-    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{EBW Cheat Sheet}}}} \\
-    \normalsize{by \textcolor{DarkBackground}{Luca Pascucci (lucapascucci)} via \textcolor{DarkBackground}{\uline{cheatography.com/lucapascucci/}}}
+\begin{tabulary}{12cm}{L}
+   \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{Cheat Sheet Node}}}} \\
+   \normalsize{by \textcolor{DarkBackground}{Luca Pascucci (lucapascucci)} via \textcolor{DarkBackground}{\uline{cheatography.com/lucapascucci/}}}
 \end{tabulary}
 \end{multicols}}
 
@@ -96,30 +98,30 @@
 \noindent
 \begin{multicols}{3}
 \begin{tabulary}{5.8cm}{LL}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
-  \vspace{-2pt}Luca Pascucci (lucapascucci) \\
-  \uline{cheatography.com/lucapascucci} \\
-  \end{tabulary}
+   \SetRowColor{FootBackground}
+   \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
+   \vspace{-2pt}Luca Pascucci (lucapascucci) \\
+   \href{https://www.cheatography.com/lucapascucci/}{cheatography.com/lucapascucci} \\
+   \end{tabulary}
 \vfill
 \columnbreak
 \begin{tabulary}{5.8cm}{L}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
-   \vspace{-2pt}Published \today .\\
+   \SetRowColor{FootBackground}
+   \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
+   \vspace{-2pt}Published 28 agosto 2019.\\
    Updated \today .\\
    Page {\thepage} of \pageref{LastPage}.
 \end{tabulary}
 \vfill
 \columnbreak
 \begin{tabulary}{5.8cm}{L}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
-  \SetRowColor{white}
-  \vspace{-5pt}
-  \includegraphics[width=120px,height=48px]{./images/EBWorld.png}  \\
-  EBWolrd s.r.l.\\
-  \uline{ebw.it}
+   \SetRowColor{FootBackground}
+   \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}} \\
+   \SetRowColor{white}
+   \vspace{-5pt}
+   \includegraphics[width=120px,height=48px]{./images/EBWorld.png} \\
+   EBWolrd s.r.l.\\
+   \href{https://www.ebw.it/}{ebw.it}
 \end{tabulary}
 \end{multicols}}
 
@@ -133,199 +135,180 @@
 % www.emerson.emory.edu/services/latex/latex_169.html
 \footnotesize % Small font.
 
-\begin{multicols*}{3}
+\begin{multicols*}{2}
 
-   \begin{tabularx}{5.377cm}{X}
+   \begin{tabularx}{8.5cm}{X}
       \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Configurazione Progetto generico}}  \tn
+      \bf\textcolor{white}{Configurazione workspace} \tn
 
       \SetRowColor{LightBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\textbf{Config EDITOR -> root del progetto}} \tn
+      Copiare file \textbf{.editorconfig} nella root del progetto \tn
 
       \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{Copiare file \textbf{.editorconfig}} \tn
-
-      \SetRowColor{LightBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\textbf{Plugins}
+      \textbf{Plugins}
       \href{https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig}{VSCode}
-      \href{https://atom.io/packages/editorconfig}{Atom}} \tn
+      \href{https://atom.io/packages/editorconfig}{Atom} \tn
 
       \hhline{>{\arrayrulecolor{DarkBackground}}-}
-      \end{tabularx}
-      \par\addvspace{1em}
-
-
-  \begin{tabularx}{5.377cm}{x{1.74195 cm} x{3.23505 cm}}
-    \SetRowColor{DarkBackground}
-    \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Angular}}  \tn
-    \SetRowColor{LightBackground}
-    Componenti \& Servizi & UpperCamelCase \tn
-    \SetRowColor{white}
-    Observer \& Subjects & lowerCamelCase\$ \tn
-    \SetRowColor{LightBackground}
-    Funzioni: & lowerCamelCase \tn
-    \SetRowColor{white}
-    Variabili: & lowerCamelCase \tn
-    \SetRowColor{LightBackground}
-    Costanti: & UPPER\_CASE \tn
-    \hhline{>{\arrayrulecolor{DarkBackground}}--}
-  \end{tabularx}
-  \par\addvspace{1em}
-
-  \begin{tabularx}{5.377cm}{X}
-   \SetRowColor{DarkBackground}
-   \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Lint Typescript}}  \tn
-   \SetRowColor{LightBackground}
-   \mymulticolumn{1}{x{5.377cm}}{\textbf{Installazione}} \tn
-   \SetRowColor{white}
-   \mymulticolumn{1}{x{5.377cm}}{Automaticamente presente nei progetti Angular} \tn
-   \SetRowColor{LightBackground}
-   \mymulticolumn{1}{x{5.377cm}}{\textbf{Configurazioni -> root del progetto}} \tn
-   \SetRowColor{white}
-   \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{tslint.json}} \tn
-   \hhline{>{\arrayrulecolor{DarkBackground}}-}
    \end{tabularx}
    \par\addvspace{1em}
 
-    \begin{tabularx}{5.377cm}{X}
+   \begin{tabularx}{8.5cm}{X}
       \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{CompoDoc (Setup)}}  \tn
+      \bf\textcolor{white}{ESLint (Aiuta durante la stesura del codice)}  \tn
+
       \SetRowColor{LightBackground}
       \textbf{Installazione} \tn
-      \SetRowColor{white}
-        npm install -g @compodoc/compodoc \tn
-      \SetRowColor{LightBackground}
-      \textbf{Script -> in package.json} \tn
-      \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{"doc": "compodoc -p src/tsconfig.app.json \texttt{-{}-}serve 4201 \texttt{-{}-}watch \texttt{-{}-}theme=Readthedocs \texttt{-{}-}open"} \tn
-      \SetRowColor{LightBackground}
-      \textbf{Inserire nel .gitignore} \tn
-      \SetRowColor{white}
-      \# CompoDoc \\ /documentation\tn
-      \SetRowColor{LightBackground}
-      \textbf{Creare documentazione} \tn
-      \SetRowColor{white}
-      npm run doc \tn
-      \SetRowColor{LightBackground}
-      \textbf{Controllare copertura documentazione} \tn
-      \SetRowColor{white}
-      Aprire \textbf{Documentation Coverage}!!! \tn
-      \hhline{>{\arrayrulecolor{DarkBackground}}-}
-    \end{tabularx}
-    \par\addvspace{1em}
-
-    \begin{tabularx}{5.377cm}{X}
-      \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{CompoDoc (Regole documentazione)}}  \tn
-      \SetRowColor{LightBackground}
-      \textbf{Componenti, Servizi, \dots} \tn
-      \SetRowColor{white}
-         /** Commento */ \\
-         @Component,Sevice,\dots\tn
-      \SetRowColor{LightBackground}
-      \textbf{Variabili, costanti, \dots} \tn
-      \SetRowColor{white}
-      /** Commento */ \tn
-      \SetRowColor{LightBackground}
-      \textbf{Funzioni} \tn
-      \SetRowColor{white}
-         /**\\
-         * Commento funzione\\
-         * \textbf{@param} \{string\} pippo Commento\\
-         * \textbf{@returns} Commento ritorno\\
-         */ \\
-         funEsempio(pippo: string): number\tn
-      \SetRowColor{LightBackground}
-      \textbf{Elementi da ignorare (Componenti, Servizi, Funzioni, Variabili, \dots)}\tn
-      \SetRowColor{white}
-      /** @ignore */ \tn
-      \hhline{>{\arrayrulecolor{DarkBackground}}-}
-    \end{tabularx}
-    \par\addvspace{1em}
-
-    \begin{tabularx}{5.377cm}{X}
-      \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{ESLint Node}}  \tn
-
-      \SetRowColor{LightBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\textbf{Installazione}} \tn
 
       \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{
-         npm install -g eslint \\
-         npm install -g eslint-plugin-jsdoc} \tn
+      npm install \texttt{-{}-}save-dev eslint \\
+      npm install \texttt{-{}-}save-dev eslint-plugin-jsdoc \tn
 
       \SetRowColor{LightBackground}
-      \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{.eslintrc} nella root del progetto} \tn
+      Copiare \textbf{.eslintrc} nella root del progetto \tn
 
       \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{
-         \textbf{Plugins}
-         \href{https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint}{VSCode}
-         \href{https://atom.io/packages/eslint}{Atom}} \tn
+      \textbf{Plugins}
+      \href{https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint}{VSCode}
+      \href{https://atom.io/packages/eslint}{Atom} \tn
 
       \hhline{>{\arrayrulecolor{DarkBackground}}-}
-      \end{tabularx}
-      \par\addvspace{1em}
+   \end{tabularx}
+   \par\addvspace{1em}
 
-    \begin{tabularx}{5.377cm}{X}
+    \begin{tabularx}{8.5cm}{X}
       \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{JsDoc (Setup)}}  \tn
+      \bf\textcolor{white}{JsDoc (Setup)} \tn
+
       \SetRowColor{LightBackground}
       \textbf{Installazione} \tn
+
       \SetRowColor{white}
-         npm install -g jsdoc \\
-         npm install \texttt{-{}-}save-dev toast-jsdoc\tn
+         npm install \texttt{-{}-}save-dev jsdoc \\
+         npm install \texttt{-{}-}save-dev toast-jsdoc \tn
+
       \SetRowColor{LightBackground}
       \textbf{Configurazioni -> root del progetto} \tn
+
       \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{conf.json}} \tn
+      Copiare \textbf{jsdoc\_conf.json} \tn
+
       \SetRowColor{LightBackground}
       \textbf{Script -> package.json del pacchetto} \tn
+
       \SetRowColor{white}
-         "createDoc": "jsdoc -c conf.json \texttt{-{}-}verbose",\\
-         "openDoc": "start chrome documentation\textbackslash{}\textbackslash{}index.html", \\
-         "doc": "npm run createDoc \&\& npm run openDoc"
-         \tn
+         "createJSDoc": "jsdoc -c jsdoc\_conf.json \texttt{-{}-}verbose",\\
+         "openJSDoc": "start chrome documentation\textbackslash{}\textbackslash{}index.html", \\
+         "documentation": "npm run createJSDoc \&\& npm run openJSDoc" \tn
+
       \SetRowColor{LightBackground}
-      \textbf{Inserire nel .gitignore} \tn
+      \textbf{Inserire nel .gitignore} (se non presente) \tn
+
       \SetRowColor{white}
-      \# JsDoc \\ documentation/ \tn
+      \# Cartella documentazione JsDoc \\ documentation/ \tn
+
       \SetRowColor{LightBackground}
       \textbf{Creare e visualizzare documentazione} \tn
-      \SetRowColor{white}
-      npm run doc \tn
-      \hhline{>{\arrayrulecolor{DarkBackground}}-}
-    \end{tabularx}
-    \par\addvspace{1em}
 
-    \begin{tabularx}{5.377cm}{X}
+      \SetRowColor{white}
+      npm run documentation \tn
+
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+   \end{tabularx}
+   \par\addvspace{1em}
+
+   \begin{tabularx}{8.5cm}{X}
       \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{JsDoc (Regole documentazione)}}  \tn
+      \bf\textcolor{white}{JsDoc (Regole documentazione)}  \tn
+
       \SetRowColor{LightBackground}
       \textbf{Intestazione di ogni file .js (UpperCamelCase)} \tn
+
       \SetRowColor{white}
-      /** \textbf{@module} NomeFile */ \tn
+      /** \textbf{@module} NomeModulo */ \tn
+
       \SetRowColor{LightBackground}
-      \textbf{Require di file locali (UpperCamelCase)} \tn
+      \textbf{Require di moduli interni (nostri)} \tn
+
       \SetRowColor{white}
-      /** \textbf{@see module:}NomeFile */ \\
-      const api = require('./nome\_file') \tn
+      /** \textbf{@see module:}NomeModulo */ \\
+      const api = require('./nome\_file'); \tn
+
       \SetRowColor{LightBackground}
       \textbf{Funzioni} \tn
+
       \SetRowColor{white}
          /**\\
-         * Commento funzione\\
-         * \textbf{@param} \{Type\} req Commento\\
-         * \textbf{@param} \{*\} req Commento\\
-         * \textbf{@return} \{number\} Commento ritorno\\
-         * \textbf{@example} <caption> Body della richiesta </caption> \\
-         * req.body = \{ "id": 1023 \} \\
+         * Commento della funzione\\
+         * \textbf{@param} \{Type\} \textit{param1} Commento parametro 1\\
+         * \textbf{@param} \{boolean\} \textit{param2} Commento parametro 2\\
+         * \textbf{@return} \{number\} Commento sul valore di ritorno\\
+         * \textbf{@example} <caption> Esempio espicativo di utilizzo della funzione </caption> \\
+         * prova(4,true) = \dots \\
          */ \\
-         function prova(req,res): number\tn
+         function prova(param1,param2): number \{ \\
+         \dots \\
+         \} \tn
+
       \hhline{>{\arrayrulecolor{DarkBackground}}-}
-    \end{tabularx}
-    \par\addvspace{1em}
+   \end{tabularx}
+   \par\addvspace{1em}
+
+   \begin{tabularx}{8.5cm}{X}
+      \SetRowColor{DarkBackground}
+      \bf\textcolor{white}{REST API}  \tn
+
+      \SetRowColor{LightBackground}
+      \textbf{Funzioni} \tn
+
+      \SetRowColor{white}
+         /**\\
+         * Commento della funzione\\
+         * \textbf{@param} \{*\} \textit{request} richiesta\\
+         * \textbf{@param} \{*\} \textit{response} risposta\\
+         * \textbf{@example} <caption> Body della richiesta </caption> \\
+         * request.body = \{ "id": 1023 \} \\
+         */ \\
+         function provaAPI(request,response) \{ \\
+         \begin{enumerate}
+            \item Controllo dei parametri (in caso errori rispondere con una EBW\_API\_response)
+            \item Esecuzione API
+            \item Risposta (formattata come EBW\_API\_response)
+         \end{enumerate}
+         \} \tn
+
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+   \end{tabularx}
+   \par\addvspace{1em}
+
+   \begin{tabularx}{8.5cm}{X}
+      \SetRowColor{DarkBackground}
+      \bf\textcolor{white}{EBW API Response}  \tn
+
+      \SetRowColor{LightBackground}
+      \textbf{Importazione} \tn
+
+      \SetRowColor{white}
+      /** \textbf{@see module:}EBW\_API\_Response\_Factory */ \\
+      const EBWAPIResponseFactory = require('./EBW\_API\_response\_factory'); \tn
+
+      \SetRowColor{LightBackground}
+      \textbf{Utilizzo} \tn
+
+      \SetRowColor{white}
+      new EBWAPIResponseFactory.createResponse(\\
+      \{\\
+      error: 0, (dipende dal tipo di risposta)\\
+      status: 0, (dipende dal tipo di risposta)\\
+      message: 'messaggio esplicativo', \\
+      data: \{ \dots \}, \\
+      traceback: \{ \dots \} \\
+      \}\\
+      ); \tn
+
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+   \end{tabularx}
+   \par\addvspace{1em}
 
 % \begin{tabularx}{5.377cm}{X}
 % \SetRowColor{DarkBackground}
