@@ -78,17 +78,17 @@
 \fancyhead[L]{
 \noindent
 \begin{multicols}{3}
-\begin{tabulary}{5.8cm}{C}
-    \SetRowColor{DarkBackground}
-    \vspace{-7pt}
-    {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
-        \includegraphics[height=55px]{./images/angular.png}}
-    }
+\begin{tabulary}{5cm}{C}
+   \SetRowColor{DarkBackground}
+   \vspace{-7pt}
+   {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
+      \includegraphics[height=55px]{./images/angular.png}}
+   }
 \end{tabulary}
 \columnbreak
 \begin{tabulary}{11cm}{L}
-    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{Cheat Sheet Angular}}}} \\
-    \normalsize{by \textcolor{DarkBackground}{Luca Pascucci (lucapascucci)} via \textcolor{DarkBackground}{\uline{cheatography.com/lucapascucci/}}}
+   \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{Cheat Sheet Angular}}}} \\
+   \normalsize{by \textcolor{DarkBackground}{Luca Pascucci (lucapascucci)} via \textcolor{DarkBackground}{\uline{cheatography.com/lucapascucci/}}}
 \end{tabulary}
 \end{multicols}}
 
@@ -96,30 +96,30 @@
 \noindent
 \begin{multicols}{3}
 \begin{tabulary}{5.8cm}{LL}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
-  \vspace{-2pt}Luca Pascucci (lucapascucci) \\
-  \href{https://www.cheatography.com/lucapascucci/}{cheatography.com/lucapascucci} \\
-  \end{tabulary}
+   \SetRowColor{FootBackground}
+   \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
+   \vspace{-2pt}Luca Pascucci (lucapascucci) \\
+   \href{https://www.cheatography.com/lucapascucci/}{cheatography.com/lucapascucci} \\
+   \end{tabulary}
 \vfill
 \columnbreak
 \begin{tabulary}{5.8cm}{L}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
-   \vspace{-2pt}Published \today .\\
-   Updated \today .\\
-   Page {\thepage} of \pageref{LastPage}.
+   \SetRowColor{FootBackground}
+   \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
+      \vspace{-2pt}Published 28 agosto 2019.\\
+      Updated \today .\\
+      Page {\thepage} of \pageref{LastPage}.
 \end{tabulary}
 \vfill
 \columnbreak
 \begin{tabulary}{5.8cm}{L}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
-  \SetRowColor{white}
-  \vspace{-5pt}
-  \includegraphics[width=120px,height=48px]{./images/EBWorld.png}  \\
-  EBWolrd s.r.l.\\
-  \uline{ebw.it}
+   \SetRowColor{FootBackground}
+   \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
+   \SetRowColor{white}
+   \vspace{-5pt}
+   \includegraphics[width=120px,height=48px]{./images/EBWorld.png}  \\
+   EBWolrd s.r.l.\\
+   \href{https://www.ebw.it/}{ebw.it}
 \end{tabulary}
 \end{multicols}}
 
@@ -133,199 +133,143 @@
 % www.emerson.emory.edu/services/latex/latex_169.html
 \footnotesize % Small font.
 
-\begin{multicols*}{3}
+\begin{multicols*}{2}
 
-   \begin{tabularx}{5.377cm}{X}
+   \begin{tabularx}{8.5cm}{X}
       \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Configurazione Progetto generico}}  \tn
+      \bf\textcolor{white}{Configurazione workspace} \tn
 
       \SetRowColor{LightBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\textbf{Config EDITOR -> root del progetto}} \tn
+      Copiare il file \href{https://drive.google.com/open?id=1iDtjWpuzGI1B5ZMyhMM1B_ALMNrUV70H}{\textbf{.editorconfig}} nella root del progetto \tn
 
       \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{Copiare file \textbf{.editorconfig}} \tn
+      \textbf{Plugins}
+      \href{https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig}{VSCode}
+      \href{https://atom.io/packages/editorconfig}{Atom}
+      \href{https://github.com/editorconfig/editorconfig-notepad-plus-plus}{Nodepad++}
+      \tn
 
       \SetRowColor{LightBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\textbf{Plugins}
-      \href{https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig}{VSCode}
-      \href{https://atom.io/packages/editorconfig}{Atom}} \tn
+      Copiare il file \href{https://drive.google.com/open?id=1fqdzQ_g0pRYIZGzjyJdR29E4__NuP7dK}{\textbf{.gitignore}} nella root del progetto \tn
 
       \hhline{>{\arrayrulecolor{DarkBackground}}-}
-      \end{tabularx}
-      \par\addvspace{1em}
-
-
-  \begin{tabularx}{5.377cm}{x{1.74195 cm} x{3.23505 cm}}
-    \SetRowColor{DarkBackground}
-    \mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Angular}}  \tn
-    \SetRowColor{LightBackground}
-    Componenti \& Servizi & UpperCamelCase \tn
-    \SetRowColor{white}
-    Observer \& Subjects & lowerCamelCase\$ \tn
-    \SetRowColor{LightBackground}
-    Funzioni: & lowerCamelCase \tn
-    \SetRowColor{white}
-    Variabili: & lowerCamelCase \tn
-    \SetRowColor{LightBackground}
-    Costanti: & UPPER\_CASE \tn
-    \hhline{>{\arrayrulecolor{DarkBackground}}--}
-  \end{tabularx}
-  \par\addvspace{1em}
-
-  \begin{tabularx}{5.377cm}{X}
-   \SetRowColor{DarkBackground}
-   \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Lint Typescript}}  \tn
-   \SetRowColor{LightBackground}
-   \mymulticolumn{1}{x{5.377cm}}{\textbf{Installazione}} \tn
-   \SetRowColor{white}
-   \mymulticolumn{1}{x{5.377cm}}{Automaticamente presente nei progetti Angular} \tn
-   \SetRowColor{LightBackground}
-   \mymulticolumn{1}{x{5.377cm}}{\textbf{Configurazioni -> root del progetto}} \tn
-   \SetRowColor{white}
-   \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{tslint.json}} \tn
-   \hhline{>{\arrayrulecolor{DarkBackground}}-}
    \end{tabularx}
    \par\addvspace{1em}
 
-    \begin{tabularx}{5.377cm}{X}
+   \begin{tabularx}{8cm}{x{5cm} x{3cm}}
       \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{CompoDoc (Setup)}}  \tn
+      \mymulticolumn{2}{x{8cm}}{\bf\textcolor{white}{Naming}} \tn
+
+      \SetRowColor{LightBackground}
+      Componenti \& Servizi & UpperCamelCase \tn
+
+      \SetRowColor{white}
+      Observer \& Subjects & lowerCamelCase\$ \tn
+
+      \SetRowColor{LightBackground}
+      Funzioni & lowerCamelCase \tn
+
+      \SetRowColor{white}
+      Variabili & lowerCamelCase \tn
+
+      \SetRowColor{LightBackground}
+      Costanti & UPPER\_CASE \tn
+
+      \hhline{>{\arrayrulecolor{DarkBackground}}--}
+   \end{tabularx}
+   \par\addvspace{1em}
+
+   \begin{tabularx}{8.5cm}{X}
+      \SetRowColor{DarkBackground}
+      \bf\textcolor{white}{TSLint (Aiuta durante la stesura del codice)} \tn
+
+      \SetRowColor{LightBackground}
+      Automaticamente presente nei progetti Angular \tn
+
+      \SetRowColor{white}
+      Copiare il file \href{https://drive.google.com/drive/folders/1fqdzQ_g0pRYIZGzjyJdR29E4__NuP7dK}{tslint.json} nella root del progetto (se già presente effettuare un veloce confronto) \tn
+
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+   \end{tabularx}
+   \par\addvspace{1em}
+
+   \begin{tabularx}{8.5cm}{X}
+      \SetRowColor{DarkBackground}
+      \bf\textcolor{white}{CompoDoc (Setup)} \tn
+
       \SetRowColor{LightBackground}
       \textbf{Installazione} \tn
+
       \SetRowColor{white}
-        npm install -g @compodoc/compodoc \tn
+      npm install -g @compodoc/compodoc \tn
+
       \SetRowColor{LightBackground}
-      \textbf{Script -> in package.json} \tn
+      \textbf{Script da aggiungere nel package.json del progetto} \tn
+
       \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{"doc": "compodoc -p src/tsconfig.app.json \texttt{-{}-}serve 4201 \texttt{-{}-}watch \texttt{-{}-}theme=Readthedocs \texttt{-{}-}open"} \tn
+      "documentation": "compodoc -p src/tsconfig.app.json \texttt{-{}-}serve 4201 \texttt{-{}-}watch \texttt{-{}-}theme=Readthedocs \texttt{-{}-}open" \tn
+
       \SetRowColor{LightBackground}
-      \textbf{Inserire nel .gitignore} \tn
+      \textbf{Inserire nel .gitignore} (se non presente) \tn
+
       \SetRowColor{white}
       \# CompoDoc \\ /documentation\tn
+
       \SetRowColor{LightBackground}
       \textbf{Creare documentazione} \tn
+
       \SetRowColor{white}
-      npm run doc \tn
+      npm run documentation \tn
+
       \SetRowColor{LightBackground}
       \textbf{Controllare copertura documentazione} \tn
-      \SetRowColor{white}
-      Aprire \textbf{Documentation Coverage}!!! \tn
-      \hhline{>{\arrayrulecolor{DarkBackground}}-}
-    \end{tabularx}
-    \par\addvspace{1em}
 
-    \begin{tabularx}{5.377cm}{X}
+      \SetRowColor{white}
+      Aprire la sezione \textbf{Documentation Coverage} della documentazione generata in precedenza \tn
+
+      \hhline{>{\arrayrulecolor{DarkBackground}}-}
+   \end{tabularx}
+   \par\addvspace{1em}
+
+   \begin{tabularx}{8.5cm}{X}
       \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{CompoDoc (Regole documentazione)}}  \tn
+      \bf\textcolor{white}{CompoDoc (Regole documentazione)} \tn
+
       \SetRowColor{LightBackground}
       \textbf{Componenti, Servizi, \dots} \tn
+
       \SetRowColor{white}
-         /** Commento */ \\
-         @Component,Sevice,\dots\tn
+      /** Commento */ \\
+      @Component,Sevice,\dots \tn
+
       \SetRowColor{LightBackground}
       \textbf{Variabili, costanti, \dots} \tn
+
       \SetRowColor{white}
       /** Commento */ \tn
+
       \SetRowColor{LightBackground}
       \textbf{Funzioni} \tn
+
       \SetRowColor{white}
-         /**\\
-         * Commento funzione\\
-         * \textbf{@param} \{string\} pippo Commento\\
-         * \textbf{@returns} Commento ritorno\\
-         */ \\
-         funEsempio(pippo: string): number\tn
+      /**\\
+      * Commento funzione\\
+      * \textbf{@param} \{string\} prova Commento\\
+      * \textbf{@returns} Commento ritorno\\
+      */ \\
+      funzioneEsempio(prova: string): number \{ \\
+      \dots\\
+      \}\tn
+
       \SetRowColor{LightBackground}
       \textbf{Elementi da ignorare (Componenti, Servizi, Funzioni, Variabili, \dots)}\tn
+
       \SetRowColor{white}
       /** @ignore */ \tn
-      \hhline{>{\arrayrulecolor{DarkBackground}}-}
-    \end{tabularx}
-    \par\addvspace{1em}
-
-    \begin{tabularx}{5.377cm}{X}
-      \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{ESLint Node}}  \tn
-
-      \SetRowColor{LightBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\textbf{Installazione}} \tn
-
-      \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{
-         npm install -g eslint \\
-         npm install -g eslint-plugin-jsdoc} \tn
-
-      \SetRowColor{LightBackground}
-      \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{.eslintrc} nella root del progetto} \tn
-
-      \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{
-         \textbf{Plugins}
-         \href{https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint}{VSCode}
-         \href{https://atom.io/packages/eslint}{Atom}} \tn
 
       \hhline{>{\arrayrulecolor{DarkBackground}}-}
-      \end{tabularx}
-      \par\addvspace{1em}
-
-    \begin{tabularx}{5.377cm}{X}
-      \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{JsDoc (Setup)}}  \tn
-      \SetRowColor{LightBackground}
-      \textbf{Installazione} \tn
-      \SetRowColor{white}
-         npm install -g jsdoc \\
-         npm install \texttt{-{}-}save-dev toast-jsdoc\tn
-      \SetRowColor{LightBackground}
-      \textbf{Configurazioni -> root del progetto} \tn
-      \SetRowColor{white}
-      \mymulticolumn{1}{x{5.377cm}}{Copiare \textbf{conf.json}} \tn
-      \SetRowColor{LightBackground}
-      \textbf{Script -> package.json del pacchetto} \tn
-      \SetRowColor{white}
-         "createDoc": "jsdoc -c conf.json \texttt{-{}-}verbose",\\
-         "openDoc": "start chrome documentation\textbackslash{}\textbackslash{}index.html", \\
-         "doc": "npm run createDoc \&\& npm run openDoc"
-         \tn
-      \SetRowColor{LightBackground}
-      \textbf{Inserire nel .gitignore} \tn
-      \SetRowColor{white}
-      \# JsDoc \\ documentation/ \tn
-      \SetRowColor{LightBackground}
-      \textbf{Creare e visualizzare documentazione} \tn
-      \SetRowColor{white}
-      npm run doc \tn
-      \hhline{>{\arrayrulecolor{DarkBackground}}-}
-    \end{tabularx}
-    \par\addvspace{1em}
-
-    \begin{tabularx}{5.377cm}{X}
-      \SetRowColor{DarkBackground}
-      \mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{JsDoc (Regole documentazione)}}  \tn
-      \SetRowColor{LightBackground}
-      \textbf{Intestazione di ogni file .js (UpperCamelCase)} \tn
-      \SetRowColor{white}
-      /** \textbf{@module} NomeFile */ \tn
-      \SetRowColor{LightBackground}
-      \textbf{Require di file locali (UpperCamelCase)} \tn
-      \SetRowColor{white}
-      /** \textbf{@see module:}NomeFile */ \\
-      const api = require('./nome\_file') \tn
-      \SetRowColor{LightBackground}
-      \textbf{Funzioni} \tn
-      \SetRowColor{white}
-         /**\\
-         * Commento funzione\\
-         * \textbf{@param} \{Type\} req Commento\\
-         * \textbf{@param} \{*\} req Commento\\
-         * \textbf{@return} \{number\} Commento ritorno\\
-         * \textbf{@example} <caption> Body della richiesta </caption> \\
-         * req.body = \{ "id": 1023 \} \\
-         */ \\
-         function prova(req,res): number\tn
-      \hhline{>{\arrayrulecolor{DarkBackground}}-}
-    \end{tabularx}
-    \par\addvspace{1em}
+   \end{tabularx}
+   \par\addvspace{1em}
 
 % \begin{tabularx}{5.377cm}{X}
 % \SetRowColor{DarkBackground}
