@@ -1,0 +1,27 @@
+name: New node release from tag
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+    - 'v*-node' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Github Action for LaTeX
+        id: latex
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: node
+          root_file: cheatography.tex
+          continue_on_error: true
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: node/cheatography.pdf
+
